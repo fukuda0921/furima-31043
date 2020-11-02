@@ -29,7 +29,7 @@ has_many :purchases
 | category_id        | integer    | null: false                   |
 | status_id          | integer    | null: false                   |
 | delivery_fee_id    | integer    | null: false                   |
-| delivery_source_id | integer    | null: false                   |
+| prefectures_id     | integer    | null: false                   |
 | days_to_ship_id    | integer    | null:false                    | 
 | price              | integer    | null:false                    | 
 | user               | references | null:false, foreign_key: true |
