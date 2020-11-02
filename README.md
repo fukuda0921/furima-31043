@@ -22,17 +22,17 @@ has_many :purchases
 
 ## itemsテーブル
 
-|      Column     |    Type    |      Options                  |
-|-----------------|------------|-------------------------------|
-| items_name      | string     | null: false                   |
-| explanation     | text       | null: false                   |
-| category        | integer    | null: false                   |
-| status          | integer    | null: false                   |
-| delivery_fee    | integer    | null: false                   |
-| delivery_source | integer    | null: false                   |
-| days_to_ship    | integer    | null:false                    | 
-| price           | string     | null:false                    | 
-| user            | references | null:false, foreign_key: true |
+|      Column        |    Type    |      Options                  |
+|--------------------|------------|-------------------------------|
+| items_name         | string     | null: false                   |
+| explanation        | text       | null: false                   |
+| category_id        | integer    | null: false                   |
+| status_id          | integer    | null: false                   |
+| delivery_fee_id    | integer    | null: false                   |
+| delivery_source_id | integer    | null: false                   |
+| days_to_ship_id    | integer    | null:false                    | 
+| price              | integer    | null:false                    | 
+| user               | references | null:false, foreign_key: true |
 
 
 ### Association
@@ -51,6 +51,7 @@ has_one :purchase
 
 ### Association
 belongs_to :item
+belongs_to :user
 has_one :address
 
 ## addressテーブル
@@ -58,7 +59,7 @@ has_one :address
 |    Column        |    Type    |          Options             |
 |------------------|------------|------------------------------|
 | postal_code      | string     | null:false                   |
-| prefectures      | integer    | null:false                   |
+| prefectures_id   | integer    | null:false                   |
 | municipality     | string     | null:false                   |
 | street_number    | string     | null:false                   |
 | building_name    | string     |                              |
