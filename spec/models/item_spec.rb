@@ -32,22 +32,22 @@ RSpec.describe Item, type: :model do
     it 'status_idを選択してないと登録できないこと' do
       @item.status_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Status Select")
+      expect(@item.errors.full_messages).to include('Status Select')
     end
     it 'delivery_fee_idを選択してないと登録できないこと' do
       @item.delivery_fee_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery fee Select")
+      expect(@item.errors.full_messages).to include('Delivery fee Select')
     end
     it 'prefecture_idを選択してないと登録できないこと' do
       @item.prefecture_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Prefecture Select")
+      expect(@item.errors.full_messages).to include('Prefecture Select')
     end
     it 'days_to_ship_idを選択しないと登録できないこと' do
       @item.days_to_ship_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Days to ship Select")
+      expect(@item.errors.full_messages).to include('Days to ship Select')
     end
     it 'priceが空では登録できないこと' do
       @item.price = nil
@@ -61,22 +61,22 @@ RSpec.describe Item, type: :model do
     it 'priceの数値が300未満では登録できないこと' do
       @item.price = '299'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price Out of setting range")
+      expect(@item.errors.full_messages).to include('Price Out of setting range')
     end
     it 'priceの数値が9999999を超えると登録できないこと' do
       @item.price = '10000000'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price Out of setting range")
+      expect(@item.errors.full_messages).to include('Price Out of setting range')
     end
     it 'priceは全角数字では登録できないこと' do
       @item.price = '８８８８'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price Half-width number")
+      expect(@item.errors.full_messages).to include('Price Half-width number')
     end
     it 'priceは整数でないと登録できないこと' do
       @item.price = 'aaaaaa'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price Half-width number")
+      expect(@item.errors.full_messages).to include('Price Half-width number')
     end
   end
 end
