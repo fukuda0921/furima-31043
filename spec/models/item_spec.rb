@@ -55,21 +55,21 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
     it 'priceは半角数字で範囲が300~9999999の間であれば登録できること' do
-      @item.price = '8888'
+      @item.price = 8888
       expect(@item).to be_valid
     end
     it 'priceの数値が300未満では登録できないこと' do
-      @item.price = '299'
+      @item.price = 299
       @item.valid?
       expect(@item.errors.full_messages).to include('Price Out of setting range')
     end
     it 'priceの数値が9999999を超えると登録できないこと' do
-      @item.price = '10000000'
+      @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price Out of setting range')
     end
     it 'priceは全角数字では登録できないこと' do
-      @item.price = '８８８８'
+      @item.price = ８８８８
       @item.valid?
       expect(@item.errors.full_messages).to include('Price Half-width number')
     end

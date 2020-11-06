@@ -16,9 +16,12 @@ class Item < ApplicationRecord
   end
   validates :price, numericality: { only_integer: true, with: /\A[0-9]+\z/, message: 'Half-width number' }
   validates :price, inclusion: { in: 300..9_999_999, message: 'Out of setting range' }
-  validates :category_id, numericality: { other_than: 1, message: 'Select' }
-  validates :status_id, numericality: { other_than: 1, message: 'Select' }
-  validates :delivery_fee_id, numericality: { other_than: 1, message: 'Select' }
   validates :prefecture_id, numericality: { other_than: 0, message: 'Select' }
-  validates :days_to_ship_id, numericality: { other_than: 1, message: 'Select' }
+
+  with_options numericality: { other_than: 1, message: 'Select' } do
+  validates :category_id
+  validates :status_id
+  validates :delivery_fee_id
+  validates :days_to_ship_id
+  end
 end
