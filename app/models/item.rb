@@ -19,9 +19,9 @@ class Item < ApplicationRecord
   validates :prefecture_id, numericality: { other_than: 0, message: 'Select' }
 
   with_options numericality: { other_than: 1, message: 'Select' } do
-  validates :category_id
-  validates :status_id
-  validates :delivery_fee_id
-  validates :days_to_ship_id
+    validates :category_id
+    validates :status_id
+    validates :delivery_fee_id
+    validates :days_to_ship_id
   end
 end
