@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
@@ -32,14 +31,20 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
-    
   end
-  
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path
+  end
+
   private
+
   def set_item
     @item = Item.find(params[:id])
   end
-  
+
   def item_params
     params.require(:item).permit(:image, :name, :explanation, :category_id, :status_id, :delivery_fee_id, :prefecture_id, :days_to_ship_id, :price).merge(user_id: current_user.id)
   end
