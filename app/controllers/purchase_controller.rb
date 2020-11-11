@@ -1,10 +1,7 @@
 class PurchaseController < ApplicationController
-  before_action :authenticate_user!, only: :index
-  before_action :sold_out, only: :index
   def index
     @item = Item.find(params[:item_id])
     @purchase_address = PurchaseAddress.new
-    redirect_to root_path unless current_user.id != @item.user_id
   end
   
 
@@ -33,13 +30,4 @@ class PurchaseController < ApplicationController
       currency: 'jpy'
     )
   end
-
-  def sold_out
-    item = Item.find(params[:item_id])
-    if item.purchase.present?
-      redirect_to root_path
-    end
-  end
-
 end
-
