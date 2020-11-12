@@ -17,6 +17,7 @@
 ### Association
 has_many :items
 has_many :purchases
+has_many :comments
 
 
 ## itemsテーブル
@@ -37,6 +38,7 @@ has_many :purchases
 ### Association
 belongs_to :user
 has_one :purchase
+has_many :comments
 
 
 ## purchasesテーブル
@@ -68,3 +70,14 @@ has_one :address
 
 ### Association
 belongs_to :purchase
+
+## commentsテーブル
+|    Column        |    Type    |          Options               |
+|------------------|------------|--------------------------------|
+| comment          | text       | null:false                     |
+| user             | references | null:false , foreign_key: true |
+| item             | references | null:false , foreign_key: true |
+
+### Association
+belongs_to :user
+belongs_to :item
