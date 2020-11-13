@@ -71,6 +71,7 @@ has_one :address
 ### Association
 belongs_to :purchase
 
+<<<<<<< Updated upstream
 ## commentsテーブル
 |    Column        |    Type    |          Options               |
 |------------------|------------|--------------------------------|
@@ -81,3 +82,5 @@ belongs_to :purchase
 ### Association
 belongs_to :user
 belongs_to :item
+=======
+>>>>>>> Stashed changes
