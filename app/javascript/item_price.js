@@ -1,4 +1,4 @@
-if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {      
+if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) { 
 function item() {
   const priceInput = document.getElementById("item-price");
   
