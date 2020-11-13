@@ -20,10 +20,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new 
+    @comment = Comment.new
     @comments = Comment.all
     @comments = @item.comments.includes(:user)
-    
   end
 
   def edit
@@ -39,9 +38,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if current_user.id == @item.user_id
-     @item.destroy
-    end
+    @item.destroy if current_user.id == @item.user_id
     redirect_to root_path
   end
 
@@ -57,7 +54,7 @@ class ItemsController < ApplicationController
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
-      username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
+      username == ENV['BASIC_AUTH_USER'] && password == ENV['BASIC_AUTH_PASSWORD']
     end
   end
 end
